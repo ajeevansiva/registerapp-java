@@ -29,15 +29,5 @@ pipeline {
                  sh "mvn test"
            }
        }
-
-       stage("SonarQube Analysis"){
-           steps {
-	           script {
-		        withSonarQubeEnv(credentialsId: 'Jenkins-sonarqube-token') { 
-                        sh "mvn sonar:sonar -Dsonar.host.url=http://192.168.1.4:9000"
-		        }
-	           }	
-           }
-       }
     }
 }
